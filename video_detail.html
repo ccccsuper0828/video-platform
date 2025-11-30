@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>網上重溫 - 海翔中医诊所</title>
+<link rel="icon" type="image/png" href="favicons/.-2026-favicon.png">
+<link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+<style>
+    /* Reset & Base */
+    body {
+        font-family: "Microsoft JHengHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background-color: #f0f2f5;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+        line-height: 1.6;
+    }
+    
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        border-top: 5px solid #0c82c0;
+    }
+
+    /* Header */
+    .header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .header img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    .user-info {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 16px;
+        background-color: #f8f9fa;
+        padding: 10px;
+        border-radius: 8px;
+        display: inline-block;
+    }
+    .user-name {
+        font-weight: bold;
+        color: #0c82c0;
+        margin: 0 10px;
+    }
+    .back-btn {
+        color: #3760ff;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 14px;
+        margin-left: 20px;
+    }
+    .page-title {
+        font-size: 28px;
+        font-weight: bold;
+        color: #181818;
+        margin: 30px 0;
+        text-align: center;
+    }
+
+    /* Video Section */
+    .video-section {
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+    .video-title {
+        font-size: 22px;
+        font-weight: bold;
+        color: #0080ff;
+        text-align: center;
+        margin-bottom: 20px;
+        padding: 10px;
+        border-bottom: 2px solid #f0f2f5;
+    }
+    
+    .video-container {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto 20px;
+    }
+    .video-js {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+
+    /* Controls */
+    .controls {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .btn {
+        font-family: "Microsoft JHengHei", sans-serif;
+        font-size: 14px;
+   color: #ffffff;    
+        padding: 10px 20px;
+   border-radius: 20px;
+        border: none;
+        cursor: pointer;
+        margin: 5px;
+        transition: background 0.3s;
+    }
+    .btn-play { background: #009325; }
+    .btn-play:hover { background: #00370e; }
+    .btn-stop { background: #ff3535; }
+    .btn-stop:hover { background: #840000; }
+    .btn-continue { background: #7373b9; }
+    .btn-continue:hover { background: #2c2c58; }
+    .btn-fullscreen { background: #1a8cff; }
+    .btn-fullscreen:hover { background: #00468c; }
+    .btn-submit { background: #0080ff; width: 150px; font-size: 16px; }
+    .btn-submit:hover { background: #004b97; }
+
+    /* Instructions */
+    .instructions {
+        background-color: #fff8f8;
+        border: 1px solid #ffeeba;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        font-size: 15px;
+        color: #5e5e5e;
+    }
+    .instructions h3 { margin-top: 0; font-size: 18px; color: #333; }
+    .instructions ol { padding-left: 25px; }
+    .instructions li { margin-bottom: 8px; }
+    .red-text { color: #d9534f; }
+
+    /* MCQ Section */
+    .mcq-section {
+        display: block; /* Changed from none to block so users can see questions immediately since we can't track google drive video end */
+        border: 2px solid #ff8040;
+        border-radius: 8px;
+        padding: 30px;
+        margin-top: 30px;
+    }
+    .mcq-title {
+        font-size: 24px;
+        color: #008080;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    .question-block {
+        margin-bottom: 20px;
+        font-size: 16px;
+        color: #3c1e1e;
+        font-weight: bold;
+    }
+    .radio-group {
+        margin-top: 10px;
+        font-weight: normal;
+    }
+    .radio-group label {
+        display: block;
+        margin-bottom: 8px;
+        cursor: pointer;
+    }
+    .radio-group input {
+        margin-right: 10px;
+    }
+    .error-msg {
+        color: red;
+        font-weight: bold;
+        margin-top: 10px;
+        display: none;
+    }
+    .success-msg {
+        color: #004080;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 20px;
+  display: none;
+}
+
+    /* Footer */
+    .footer-disclaimer {
+        border: 1px solid #ddd;
+        padding: 15px;
+        color: #408080;
+        font-weight: bold;
+        font-size: 14px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        margin-top: 30px;
+        text-align: justify;
+    }
+</style>
+</head>
+<body>
+<script src="js/auth.js"></script>
+<script>Auth.requireLogin();</script>
+<div class="container">
+    <div class="header">
+        <img src="images/png.jpg" alt="Banner">
+        <div style="text-align: center;">
+            <div class="user-info">
+                <!-- Auth info will be injected here -->
+            </div>
+</div>
+        <div class="page-title">「國醫大師與名中醫傳承學習計劃系列」網上重溫</div>
+</div>
+
+    <div id="videoArea" class="video-section">
+        <div class="video-title">M11   惡性腫瘤中醫治療經驗與最新研究進展<br><span style="font-size: 18px; font-weight: normal;">(主講 : 陳抗⽣教授)</span></div>
+        
+        <div class="instructions">
+            <h3>注意事項：</h3>
+            <ol>
+                <li><span class="red-text">實體活動「進修項目」編號與網上重溫「進修項目」編號相同。曾於2024年1月至9月活動期間獲發並領取「註冊中醫進修證明書」的參加者無需重複下載證書。</span></li>
+                <li>海翔中医诊所會在線記錄參加者登入網上講座的時間。註冊中醫必須完整觀看講座及回答有關講座內容的問題，才可獲發「註冊中醫進修證明書」。</li>
+                <li>建議使用電腦觀看網上講座。</li>
+                <li>觀看講座前請先確保電腦系統運作正常及網絡穩定。</li>
+                <li>參加者 <u>必須</u> 預留足夠時間連續觀看講座，如連線中斷或中途退出系統， <u>必須</u> 重新觀看講座。</li>
+            </ol>
+            <h3>觀看影片步驟：</h3>
+            <ol>
+                <li>按「開始播放」觀看影片，觀看過程中，如有需要，可按「暫停」及「繼續播放」</li>
+                <li>可按「全屏模式」觀看影片，按鍵盤上「Esc」鍵可退出全屏模式。</li>
+                <li>問題將於影片播放完畢後顯示。</li>
+            </ol>
+</div>
+
+        <div class="controls" style="display:none;">
+            <button id="btnStart" class="btn btn-play" onclick="startVideo()">開始播放</button>
+            <button id="btnStop" class="btn btn-stop" onclick="pauseVideo()" style="display:none;">暫停</button>
+            <button id="btnContinue" class="btn btn-continue" onclick="resumeVideo()" style="display:none;">繼續播放</button>
+            <button id="btnFullscreen" class="btn btn-fullscreen" onclick="toggleFullscreen()" style="display:none;">全屏模式</button>
+</div>
+
+        <div class="video-container">
+            <iframe src="https://drive.google.com/file/d/1WJWaslX9AIWtaEYV0__YSsVS6XTYEfsG/preview" width="100%" height="480" allow="autoplay" style="border: none;"></iframe>
+	</div>
+</div>
+
+    <!-- MCQ Section -->
+
+    <div class="footer-disclaimer">
+        本資料／活動（或由獲資助機構）所表達的任何意見、研究、結果、結論或建議，並不代表香港特別行政區政府、醫務衞生局、中醫藥發展基金諮詢委員會、中醫藥發展基金執行機構或香港生產力促進局的觀點或意見。
+</div>
+    <div class="footer" style="text-align: center; margin-top: 20px; color: #999; font-size: 12px;">
+        Copyright ©2024 School of Chinese Medicine, Faculty of Medicine, Haixiang Chinese Medicine Clinic. All Rights Reserved.
+	</div>
+</div>
+
+<script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+<script>
+    // Video Data
+    const videoMap = {
+        'new': {
+            src: 'https://drive.google.com/file/d/1sovWwAXcWgooQzeiafxTkHrBPIySxS4q/preview',
+            title: '兒科',
+            speaker: '郭爾竹醫師'
+        },
+        'new2': {
+            src: 'https://drive.google.com/file/d/1LSKoYmN16A2H1Giohcc91yRHaV13zLBM/preview',
+            title: '婦科',
+            speaker: '林天昕醫師'
+        },
+        'new3': {
+            src: 'https://drive.google.com/file/d/1ef7JvbiUCdE5DgwMFAbuMCt-6qTFqLsh/preview',
+            title: '骨科',
+            speaker: '王國榮醫師'
+        },
+        'new4': {
+            src: 'https://drive.google.com/file/d/1tlOsNKF5fdnAvoI1QwaTpdoepiNVuVdb/preview',
+            title: '內科',
+            speaker: '單浩彬醫師'
+        },
+        'new5': {
+            src: 'https://drive.google.com/file/d/1yPMh5A11JWW_qH1XyeEvnFHE4hPhzLxp/preview',
+            title: '針灸',
+            speaker: '彭旭亨醫師'
+        },
+        'm11': { // Default fallback
+            src: 'https://drive.google.com/file/d/1WJWaslX9AIWtaEYV0__YSsVS6XTYEfsG/preview',
+            title: 'M11   惡性腫瘤中醫治療經驗與最新研究進展',
+            speaker: '陳抗⽣教授'
+        },
+        'default': {
+            src: 'https://drive.google.com/file/d/1WJWaslX9AIWtaEYV0__YSsVS6XTYEfsG/preview',
+            title: 'M11   惡性腫瘤中醫治療經驗與最新研究進展',
+            speaker: '陳抗⽣教授'
+        }
+    };
+
+    function getParameterByName(name, url = window.location.href) {
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    // Initialize page content
+    document.addEventListener('DOMContentLoaded', function() {
+        const videoId = getParameterByName('v') || 'default';
+        const videoData = videoMap[videoId] || videoMap['default'];
+        
+        // Update iframe src
+        const iframe = document.querySelector('.video-container iframe');
+        if(iframe) iframe.src = videoData.src;
+        
+        // Update Title and Speaker
+        const titleEl = document.querySelector('.video-title');
+        if(titleEl) {
+            titleEl.innerHTML = `${videoData.title}<br><span style="font-size: 18px; font-weight: normal;">(主講 : ${videoData.speaker})</span>`;
+        }
+    });
+
+    var player = videojs('my-video'); // Keep existing logic just in case, though unused with iframe
+    var statusText = document.getElementById('statusText');
+
+    // Controls visibility
+    function updateControls(state) {
+        const btnStart = document.getElementById('btnStart');
+        const btnStop = document.getElementById('btnStop');
+        const btnContinue = document.getElementById('btnContinue');
+        const btnFullscreen = document.getElementById('btnFullscreen');
+
+        if (state === 'playing') {
+            btnStart.style.display = 'none';
+            btnStop.style.display = 'inline-block';
+            btnContinue.style.display = 'none';
+            btnFullscreen.style.display = 'inline-block';
+            statusText.textContent = "影片播放中!";
+        } else if (state === 'paused') {
+            btnStart.style.display = 'none';
+            btnStop.style.display = 'none';
+            btnContinue.style.display = 'inline-block';
+            btnFullscreen.style.display = 'none';
+            var time = Math.floor(player.currentTime());
+            statusText.textContent = "影片於 " + sec2Hms(time) + " 位置暫停 !";
+        } else { // initial or ended
+            btnStart.style.display = 'inline-block';
+            btnStop.style.display = 'none';
+            btnContinue.style.display = 'none';
+            btnFullscreen.style.display = 'none';
+            statusText.textContent = "";
+        }
+    }
+
+    function startVideo() {
+        player.play();
+        updateControls('playing');
+    }
+
+    function pauseVideo() {
+        player.pause();
+        updateControls('paused');
+    }
+
+    function resumeVideo() {
+        player.play();
+        updateControls('playing');
+    }
+
+    function toggleFullscreen() {
+        if (player.isFullscreen()) {
+            player.exitFullscreen();
+        } else {
+            player.requestFullscreen();
+        }
+    }
+
+    player.on('play', function() {
+        updateControls('playing');
+    });
+
+    player.on('pause', function() {
+        // updateControls('paused'); // handled by click, optional here
+    });
+
+    player.on('ended', function() {
+        player.exitFullscreen();
+        updateControls('initial');
+        document.getElementById('videoArea').style.display = 'none';
+        document.getElementById('mcqArea').style.display = 'block';
+    });
+
+function sec2Hms(d) {
+    d = Number(d);
+    var h = Math.floor(d / 3600);
+    var m = Math.floor(d % 3600 / 60);
+    var s = Math.floor(d % 3600 % 60);
+        var hDisplay = h > 0 ? h + " 小時 " : "";
+        var mDisplay = m > 0 ? m + " 分 " : "";
+        var sDisplay = s > 0 ? s + " 秒" : "";
+        return hDisplay + mDisplay + sDisplay || "0 秒";
+    }
+
+    // MCQ Logic
+    function showNext(nextId) {
+        // Hide error message for current question
+        var current = event.target.closest('.question-block');
+        if (current) {
+            current.querySelector('.error-msg').style.display = 'none';
+        }
+        // Show next
+        document.getElementById(nextId).style.display = 'block';
+    }
+
+    function showFinal() {
+        var current = event.target.closest('.question-block');
+        if (current) {
+            current.querySelector('.error-msg').style.display = 'none';
+        }
+        document.getElementById('finalMsg').style.display = 'block';
+    }
+
+    // Attach error handler to wrong answers
+    document.addEventListener('DOMContentLoaded', function() {
+        var radios = document.querySelectorAll('input[type="radio"][value="wrong"]');
+        radios.forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                var block = this.closest('.question-block');
+                block.querySelector('.error-msg').style.display = 'block';
+                
+                // Hide subsequent questions if answer is changed to wrong (optional, strict mode)
+                // For now just showing error
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

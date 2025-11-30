@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>「國醫大師與名中醫傳承學習計劃系列」網上重溫</title>
+<link rel="icon" type="image/png" href="favicons/.-2026-favicon.png">
+<style>
+    /* Reset & Base */
+    body {
+        font-family: "Microsoft JHengHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background-color: #f0f2f5;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+        line-height: 1.6;
+    }
+    
+    /* Layout */
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        border-top: 5px solid #0c82c0;
+    }
+
+    /* Header */
+    .header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .header img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    .user-info {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 16px;
+        background-color: #f8f9fa;
+        padding: 10px;
+        border-radius: 8px;
+        display: inline-block;
+    }
+    .user-name {
+        font-weight: bold;
+        color: #0c82c0;
+        margin: 0 10px;
+    }
+    .logout-btn {
+        color: #d9534f;
+        text-decoration: none;
+        font-size: 14px;
+        margin-left: 20px;
+    }
+    .page-title {
+        font-size: 28px;
+    font-weight: bold;
+        color: #181818;
+        margin: 30px 0;
+        text-align: center;
+    }
+
+    /* Instructions */
+    .instructions {
+        background-color: #fff8f8;
+        border: 1px solid #ffeeba;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+    }
+    .instructions h3 {
+        margin-top: 0;
+        color: #454545;
+        font-size: 18px;
+    }
+    .instructions ol {
+        margin-bottom: 0;
+        padding-left: 25px;
+    }
+    .instructions li {
+        margin-bottom: 8px;
+    }
+    .highlight-red {
+        color: #d9534f;
+    }
+
+    /* Section Title */
+    .section-title {
+        background-color: #f3e7e7;
+        color: #330000;
+        padding: 15px;
+        text-align: center;
+        font-size: 24px;
+        border-radius: 8px 8px 0 0;
+        margin-bottom: 0;
+    }
+
+    /* Table */
+    .video-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+        font-size: 15px;
+    }
+    .video-table th {
+        background-color: #f5ebeb;
+        color: #251812;
+        font-weight: bold;
+        padding: 12px 10px;
+        text-align: center;
+        border: 1px solid #e0e0e0;
+    }
+    .video-table td {
+        padding: 12px 10px;
+        border: 1px solid #e0e0e0;
+        vertical-align: middle;
+    }
+    .video-table tr:hover {
+        background-color: #fcfcfc;
+    }
+    
+    .col-id { width: 6%; text-align: center; font-weight: bold; }
+    .col-date { width: 12%; text-align: center; }
+    .col-topic { width: 30%; }
+    .col-speaker { width: 12%; text-align: center; }
+    .col-duration { width: 8%; text-align: center; }
+    .col-credit { width: 6%; text-align: center; }
+    .col-action { width: 13%; text-align: center; }
+
+    /* Buttons in Table */
+    .btn-action {
+    display: inline-block;
+        padding: 6px 15px;
+        margin-bottom: 5px;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+        border: none;
+        transition: background-color 0.2s;
+    }
+    .btn-view {
+        background-color: #564fdb;
+        color: white;
+    }
+    .btn-view:hover {
+        background-color: #1b1672;
+    }
+    .btn-download {
+        background-color: #28a745;
+        color: white;
+    }
+    .btn-download:hover {
+        background-color: #1e7e34;
+    }
+    .status-text {
+        font-size: 12px;
+        display: block;
+    }
+    .status-watched { color: #ff0033; }
+    .status-unwatched { color: #008080; }
+
+    /* Footer disclaimer */
+    .disclaimer {
+        border: 1px solid #ddd;
+        padding: 20px;
+        color: #408080;
+        font-weight: bold;
+        font-size: 14px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+
+    /* Modal */
+    .modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+    }
+    .modal-content {
+        background-color: #ffffdf;
+        padding: 30px;
+        border-radius: 8px;
+        max-width: 600px;
+        width: 90%;
+        border: 2px solid #0c82c0;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        text-align: center;
+    position: relative;
+}
+    .modal-title {
+        color: #008080;
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        display: block;
+    }
+    .modal-body {
+        text-align: left;
+        margin-bottom: 25px;
+        font-size: 15px;
+        line-height: 1.6;
+    }
+    .btn-close {
+        background-color: #d94600;
+        color: white;
+        border: none;
+        padding: 10px 30px;
+        border-radius: 20px;
+        font-size: 16px;
+   cursor: pointer;
+}
+    .btn-close:hover {
+        background-color: #b33a00;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .container { padding: 20px; }
+        .video-table, .video-table thead, .video-table tbody, .video-table th, .video-table td, .video-table tr { 
+            display: block; 
+        }
+        .video-table thead tr { 
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+        .video-table tr { margin-bottom: 15px; border: 1px solid #ccc; border-radius: 8px; padding: 10px; }
+        .video-table td { 
+            border: none;
+            border-bottom: 1px solid #eee; 
+            position: relative;
+            padding-left: 50%; 
+            text-align: right;
+        }
+        .video-table td:before { 
+            position: absolute;
+            top: 12px;
+            left: 10px;
+            width: 45%; 
+            padding-right: 10px; 
+            white-space: nowrap;
+            text-align: left;
+            font-weight: bold;
+            color: #555;
+        }
+        .video-table td:last-child { border-bottom: none; }
+        
+        .col-id:before { content: "編號"; }
+        .col-date:before { content: "日期"; }
+        .col-topic:before { content: "主題"; }
+        .col-speaker:before { content: "講者"; }
+        .col-duration:before { content: "片長"; }
+        .col-credit:before { content: "學分"; }
+        .col-action:nth-last-child(2):before { content: "講座"; }
+        .col-action:last-child:before { content: "進修證書"; }
+        
+        .col-id, .col-date, .col-topic, .col-speaker, .col-duration, .col-credit, .col-action {
+            width: auto;
+            text-align: left;
+        }
+        .col-topic { text-align: right; }
+}
+</style>
+</head>
+<body>
+<script src="js/auth.js"></script>
+<script>Auth.requireLogin();</script>
+<div class="container">
+    <div class="header">
+        <img src="images/png.jpg" alt="Banner">
+        <div style="text-align: center;">
+            <div class="user-info">
+                <!-- Auth info will be injected here -->
+            </div>
+        </div>
+        <div class="page-title">「國醫大師與名中醫傳承學習計劃系列」網上重溫</div>
+</div>
+
+    <div class="instructions">
+        <h3>使用說明 :</h3>
+        <ol>
+            <li><span class="highlight-red">實體活動「進修項目」編號與網上重溫「進修項目」編號相同。曾於2024年1月至9月活動期間獲發並領取「註冊中醫進修證明書」的參加者無需重複下載證書。</span></li>
+            <li>講座觀看次數不限, 證書最多可重覆下載 3 次。</li>
+            <li>請於 2026 年 5 月 31 日或之前觀看講座及完成有關問題後自行下載證書，逾期未有下載將不獲補發證書。</li>
+        </ol>
+</div>
+
+    <div class="section-title">觀看講座及下載證書</div>
+    
+    <table class="video-table">
+        <thead>
+            <tr>
+                <th class="col-id">編號</th>
+                <th class="col-date">實體講座日期</th>
+                <th class="col-topic">主題</th>
+                <th class="col-speaker">講者</th>
+                <th class="col-duration">片長</th>
+                <th class="col-credit">學分</th>
+                <th class="col-action">講座</th>
+                <th class="col-action">進修證書</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- M11 -->
+            <tr>
+                <td class="col-id">M11</td>
+                <td class="col-date">2024-01-06</td>
+                <td class="col-topic">惡性腫瘤中醫治療經驗與最新研究進展</td>
+                <td class="col-speaker">陳抗⽣教授</td>
+                <td class="col-duration">3 小時</td>
+                <td class="col-credit">3</td>
+                <td class="col-action">
+                    <a href="video_detail.html?v=m11" class="btn-action btn-view">觀看</a><br>
+                    <span class="status-text status-unwatched">(未觀看)</span>
+                </td>
+                <td class="col-action">
+                    <br>
+                    <span class="status-text status-unwatched">(未下載)</span>
+        </td>
+            </tr>
+            <!-- New Video Module -->
+            <tr>
+                <td class="col-id">New</td>
+                <td class="col-date">2024-12-01</td>
+                <td class="col-topic">兒科</td>
+                <td class="col-speaker">郭爾竹醫師</td>
+                <td class="col-duration">N/A</td>
+                <td class="col-credit">N/A</td>
+                <td class="col-action">
+                    <a href="video_detail.html?v=new" class="btn-action btn-view">觀看</a><br>
+                    <span class="status-text status-unwatched">(未觀看)</span>
+        </td>
+                <td class="col-action">
+                    <br>
+                    <span class="status-text status-unwatched">(未下載)</span>
+        </td>
+            </tr>
+            <!-- New Video Module 2 -->
+            <tr>
+                <td class="col-id">New 2</td>
+                <td class="col-date">2024-12-02</td>
+                <td class="col-topic">婦科</td>
+                <td class="col-speaker">林天昕醫師</td>
+                <td class="col-duration">N/A</td>
+                <td class="col-credit">N/A</td>
+                <td class="col-action">
+                    <a href="video_detail.html?v=new2" class="btn-action btn-view">觀看</a><br>
+                    <span class="status-text status-unwatched">(未觀看)</span>
+        </td>
+                <td class="col-action">
+                    <br>
+                    <span class="status-text status-unwatched">(未下載)</span>
+        </td>
+            </tr>
+            <tr>
+                <td class="col-id">New 3</td>
+                <td class="col-date">2024-12-02</td>
+                <td class="col-topic">骨科</td>
+                <td class="col-speaker">王國榮醫師</td>
+                <td class="col-duration">N/A</td>
+                <td class="col-credit">N/A</td>
+                <td class="col-action">
+                    <a href="video_detail.html?v=new3" class="btn-action btn-view">觀看</a><br>
+                    <span class="status-text status-unwatched">(未觀看)</span>
+        </td>
+                <td class="col-action">
+                    <br>
+                    <span class="status-text status-unwatched">(未下載)</span>
+        </td>
+            </tr>
+            <tr>
+                <td class="col-id">New 4</td>
+                <td class="col-date">2024-12-02</td>
+                <td class="col-topic">內科</td>
+                <td class="col-speaker">單浩彬醫師</td>
+                <td class="col-duration">N/A</td>
+                <td class="col-credit">N/A</td>
+                <td class="col-action">
+                    <a href="video_detail.html?v=new4" class="btn-action btn-view">觀看</a><br>
+                    <span class="status-text status-unwatched">(未觀看)</span>
+        </td>
+                <td class="col-action">
+                    <br>
+                    <span class="status-text status-unwatched">(未下載)</span>
+        </td>
+            </tr>
+            <tr>
+                <td class="col-id">New 5</td>
+                <td class="col-date">2024-12-02</td>
+                <td class="col-topic">針灸</td>
+                <td class="col-speaker">彭旭亨醫師</td>
+                <td class="col-duration">N/A</td>
+                <td class="col-credit">N/A</td>
+                <td class="col-action">
+                    <a href="video_detail.html?v=new5" class="btn-action btn-view">觀看</a><br>
+                    <span class="status-text status-unwatched">(未觀看)</span>
+        </td>
+                <td class="col-action">
+                    <br>
+                    <span class="status-text status-unwatched">(未下載)</span>
+        </td>
+			</tr>
+            <!-- M21 -->
+            <!-- M42 -->
+            <!-- M51 -->
+            <!-- M52 -->
+            <!-- M61 -->
+            <!-- M62 -->
+        </tbody>
+    </table>
+
+    <div class="disclaimer">
+本資料／活動（或由獲資助機構）所表達的任何意見、研究、結果、結論或建議，並不代表香港特別行政區政府、醫務衞生局、中醫藥發展基金諮詢委員會、中醫藥發展基金執行機構或香港生產力促進局的觀點或意見。
+</div>
+</div>
+
+<!-- Modals -->
+<div id="modalOverlay" class="modal-overlay" onclick="hideModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <span id="modalTitle" class="modal-title"></span>
+        <div id="modalBody" class="modal-body"></div>
+        <button class="btn-close" onclick="hideModal()">關閉視窗</button>
+</div>
+</div>
+
+<script>
+    // Data for modals (extracted from original file)
+    const modalData = {
+        'V1': {
+            title: '嶺南羅氏婦科治療婦科疑難病證案例分享',
+            content: '以下介紹'
+        },
+        'V2': {
+            title: '小柴胡湯證之悟與用 - 兼論流感辨治',
+            content: '以下介紹'
+        },
+        'V3': {
+            title: '葛根湯臨床運用',
+            content: '以下介紹'
+        },
+        'V4': {
+            title: '應用傳統經方治療內分泌代謝疾病的體會',
+            content: '以下介紹'
+        },
+        'V5': {
+            title: '黃連及其經方在糖尿病中的運用',
+            content: '以下介紹'
+        },
+        'V6': {
+            title: '採用中藥濃縮劑是中醫藥走向現代化的起點',
+            content: '濃缩中藥是將中醫傳統煲藥融入現代生活，已獲成功的中醫藥劑型改革，在港澳已有31年歷史，運用中藥濃縮劑已成趨向，但業界對濃縮中藥的製作和療效認識不深，筆者有幸作為香港中藥劑型改革開拓者，在製作和應用濃縮中藥的過程中積累了體會，與同業先進共同分享。'
+        },
+        'V7': {
+            title: '慢性疲勞綜合徵 - 中醫針灸治療思路',
+            content: '慢性疲勞綜合徵的命名至今已35年，現仍處於未能發現持異性致病因素、無診斷用檢驗指標、無治療方法，發病率卻逐年上升的狀態。中醫學對類似症狀的認知已經有着悠久的歷史和行之有效的具體治療方法。中醫的靈魂是辨證施治，在八綱辨證的基礎上參以證型、症狀、體質等因素，靈活地制定出合理的治療原則與方案，做到辨證施治、辨虛施補。有的放矢，就會收到預期的結果。發揚中醫特色，有症狀就有辦法治療。'
+        }
+    };
+
+    function showModal(id) {
+        const data = modalData[id];
+        if (data) {
+            document.getElementById('modalTitle').textContent = data.title;
+            document.getElementById('modalBody').textContent = data.content;
+            document.getElementById('modalOverlay').style.display = 'flex';
+        } else {
+            // Default content if ID not found, mostly for demo purposes as I mapped buttons to V1-V7 somewhat arbitrarily based on original HTML structure which was a bit confusing
+            document.getElementById('modalTitle').textContent = '講座詳情';
+            document.getElementById('modalBody').textContent = '暫無詳細介紹。';
+            document.getElementById('modalOverlay').style.display = 'flex';
+        }
+    }
+
+    function hideModal() {
+        document.getElementById('modalOverlay').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>

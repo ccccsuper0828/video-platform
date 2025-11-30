@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>「國醫大師與名中醫傳承學習計劃系列」網上重溫</title>
+<link rel="icon" type="image/png" href="favicons/.-2026-favicon.png">
+<style>
+    /* Reset & Base */
+    body {
+        font-family: "Microsoft JHengHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background-color: #f0f2f5;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+        line-height: 1.6;
+    }
+    
+    /* Layout */
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        border-top: 5px solid #0c82c0;
+    }
+
+    /* Header */
+    .header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .header img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    .page-title {
+        font-size: 28px;
+        font-weight: bold;
+        color: #181818;
+        margin: 20px 0;
+    }
+    .divider {
+        border: 0;
+        border-top: 4px solid #78c7e4;
+        width: 100px;
+        margin: 20px auto;
+    }
+
+    /* Content */
+    .intro-text {
+        font-size: 16px;
+        margin-bottom: 20px;
+        text-align: justify;
+    }
+    
+    a {
+        color: #0073e6;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+
+    ol {
+        padding-left: 24px;
+        margin-bottom: 20px;
+    }
+    li {
+        margin-bottom: 8px;
+    }
+
+    .notice-box {
+        background-color: #fff8f8;
+        border-left: 4px solid #d94600;
+        padding: 15px 20px;
+        margin: 20px 0;
+    }
+    .notice-title {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    /* Table */
+    .modules-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 30px 0;
+        font-size: 15px;
+    }
+    .modules-table th {
+        background-color: #f8f9fa;
+        color: #444;
+        font-weight: bold;
+        padding: 12px 15px;
+        text-align: center;
+        border-bottom: 2px solid #dee2e6;
+    }
+    .modules-table td {
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        vertical-align: top;
+    }
+    .modules-table tr:hover {
+        background-color: #fcfcfc;
+    }
+    .col-code { width: 10%; text-align: center; font-weight: bold; color: #555; }
+    .col-topic { width: 55%; }
+    .col-speaker { width: 35%; color: #990000; }
+
+    /* Button */
+    .action-area {
+        text-align: center;
+        margin: 40px 0;
+    }
+    .btn-watch {
+        display: inline-block;
+        background: #0c82c0; /* Match theme color */
+        color: #fff;
+        font-size: 18px;
+        padding: 12px 40px;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(12, 130, 192, 0.2);
+        font-family: "Microsoft JHengHei", sans-serif;
+    }
+    .btn-watch:hover {
+        background: #0a6ba0;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(12, 130, 192, 0.3);
+        text-decoration: none;
+        color: #fff;
+    }
+
+    /* Footer */
+    .footer {
+        margin-top: 50px;
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+        font-size: 14px;
+        color: #666;
+        text-align: center;
+    }
+    .footer-info {
+        margin-bottom: 15px;
+        color: #555;
+    }
+    .copyright {
+        font-size: 12px;
+        color: #999;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        .container {
+            padding: 20px;
+        }
+        .modules-table th, .modules-table td {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .modules-table thead {
+            display: none;
+        }
+        .modules-table tr {
+            display: block;
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        .modules-table td {
+            border: none;
+            padding: 5px 10px;
+        }
+        .col-code {
+            text-align: left;
+            font-size: 1.2em;
+            color: #0c82c0;
+        }
+}
+</style>
+</head>
+<body>
+<script src="js/auth.js"></script>
+<!-- Main Container -->
+<div class="container">
+    <div class="header">
+        <img src="images/png.jpg" alt="Banner">
+        <div style="text-align: center;">
+            <div class="user-info">
+                <!-- Auth info will be injected here -->
+            </div>
+        </div>
+        <div class="page-title">「國醫大師與名中醫傳承學習計劃系列」網上重溫</div>
+        <div class="divider"></div>
+    </div>
+
+    <div class="intro-text">
+        <p>中醫執業試臨床試高分突破班 (2026應屆考生專屬)👋 挑戰升級，我們助您穩操勝券！</p>
+        <p>近年來，中醫執業試臨床試的題型不斷更新，難度顯著加深，導致考生合格率一度跌破五成。許多考生因缺乏正確的複習模式、清晰的方向以及實戰機會，往往事倍功半，努力複習卻仍與合格擦肩而過。</p>
+        <p>這一次，讓您不再孤軍奮戰！華夏書院攜手連續兩年創下超8成合格率的專業團隊（海翔中醫），為2026年應屆考生量身打造高分突破課程。我們不僅傳授知識，更提供實戰演練與應試心法，確保您以最高效率、最佳狀態迎接挑戰。</p>
+        <p><strong>🔥 我們的實力證明：連續兩年，合格率超8成！</strong></p>
+        <p>我們深知，成績才是硬道理。我們的課程團隊已成功舉辦兩屆臨床試輔導，學員合格率穩定保持在80%以上，遠超業界平均水平。這份卓越的成績，源於我們對考試趨勢的精準把握和對考生痛點的深度解決。</p>
+        <p><strong>🌟 課程內容與核心優勢：</strong></p>
+        <p>1. 專業師資，全程同行<br>
+        我們邀請到一群熱心且經驗豐富的資深醫師，與您同行至2026年執業試。導師們將毫無保留地分享高效複習技巧、最新應試經驗，並提供一對一模擬口試訓練。</p>
+        <p>2. 靈活學習，高效重溫<br>
+        ✅ 特設線上課程：打破地域限制，方便各地學員參與。<br>
+        ✅ 粵普雙語教學：照顧不同語言習慣的學員，所有課程均可課後無限次重溫，讓您隨時鞏固學習成果。</p>
+        <p>3. 實戰為王，精準糾錯<br>
+        ✅ 解構口試核心要點：針對每科口試，詳細解析複習方式、得分要點及常見陷阱。<br>
+        ✅ 導師示範標準答題：親身示範如何流暢、有條理地回答考題，建立高分模板。<br>
+        ✅ 課堂即時操練與分析：及早透過課堂進行模擬操練，導師將詳細分析同學失分原因，即時糾正答題方式，將錯誤消滅在考場之外。</p>
+        <p><strong>🎯 臨床試四大痛點，我們的「高分應對法」：</strong></p>
+        
+        <table border="1" style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+            <tr style="background-color: #f0f2f5;">
+                <th style="padding: 10px; width: 40%;">考生常見痛點<br>錯誤複習模式/常見情況</th>
+                <th style="padding: 10px; width: 60%;">我們的「高分應對法」</th>
+            </tr>
+            <tr>
+                <td style="padding: 10px;">1. 病因病機表達欠條理<br>考試一開始便語塞或無條理，印象分瞬間「不合格」，影響後續分題表現。</td>
+                <td style="padding: 10px;">【公式化應對】：毋需死記硬背，學會遵循**「病因 → 病機 → 結果」的公式化框架，讓您脫口而出，流暢表達**，為考官留下專業、條理清晰的第一印象。</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px;">2. 面對意料之外的題目<br>腦海空白，越緊張越答不出，連印象分都被扣除。</td>
+                <td style="padding: 10px;">【框架式思維】：針對診斷要點、鑒別要點等分題，提供系統性框架進行 Brainstorm。面對未準備的題目，寧願思考數秒，一次過清晰作答，避免支吾以對。</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px;">3. 證型太多，未能全部背誦<br>臨近考試背不完所有證型，抽到沒溫的題目只能放棄。</td>
+                <td style="padding: 10px;">【線索分析法】：教授您如何仔細分析病例中的線索，精準找出病變臟腑、寒熱濕燥、虛實。掌握判斷關鍵（特別是舌脈象），即使未背誦，也能撞中證型而得分。</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px;">4. 對題目不了解，講多錯多<br>勉強回憶書本文字，回答似是而非的錯誤概念，或答非所問。</td>
+                <td style="padding: 10px;">【Common Sense 優先】：強調遵循醫學常識與臨床思維進行分析。寧可運用Common Sense，也絕不勉強回答錯誤概念，避免自亂陣腳，確保每句回答都專業可靠。</td>
+            </tr>
+        </table>
+
+        <p><strong>🤝 結伴同行，共同成長</strong></p>
+        <p>課程亦提供絕佳的機會，讓您認識其他志同道合的學習伙伴。課餘時間，您可以自行結伴交流、操練，共同應對香港中醫執業試的挑戰，將個人努力轉化為集體智慧。</p>
+        <p>加入我們，讓「超8成合格率」的成功經驗，成為您通過執業試的堅實保障！</p>
+        <p style="text-align: center; font-size: 20px; color: #d94600; font-weight: bold; margin-top: 20px;">立即報名，鎖定您的2026年合格席位！</p>
+    </div>
+
+    <p>網上重溫詳情：</p>
+    <ol>
+        <li> 費用全免，包括豁免「註冊中醫進修證明書」行政費。</li>
+        <li> 講座語言為廣東話或普通話。</li>
+        <li> 已註冊人士，可在2024年12月1日至2026年5月31日期間自行登入系統觀看。</li>
+        <li> 香港註冊中醫師必須完整觀看已選的講座及回答有關講座內容的問題 ，方合乎資格下載電子「註冊中醫進修證明書」。 建議透過電腦下載電子證書 ，不建議使用手機或平板電腦等裝置下載。本學院不會代行打印。 請於2026年5月31日或之前自行下載，逾期未有下載將不獲補發證書。</li>
+    </ol>
+
+    <div class="notice-box">
+        <span class="notice-title">注意事項：</span>
+        <ol>
+            <li> <span style="color:red">實體活動「進修項目」編號與網上重溫「進修項目」編號相同。曾於2024年1月至9月活動期間獲發並領取「註冊中醫進修證明書」的參加者無需重複下載證書。</span></li>
+            <li> 報名一經確認，不得轉讓他人使用。</li>
+            <li> 本學院會在線記錄參加者登入網上講座的時間。註冊中醫必須完整觀看講座及回答有關講座內容的問題，才可獲發「註冊中醫進修證明書」 。</li>
+            <li> 建議使用電腦觀看網上講座，觀看講座前請先確保電腦系統運作正常及網絡穩定。</li>
+            <li> 參加者需連續觀看講座，如連線中斷或中途退出系統，必須重頭完整觀看講座。</li>
+        </ol>
+    </div>
+
+    <!-- Modules Table -->
+    <table class="modules-table">
+        <thead>
+            <tr>
+                <th class="col-code">編號</th>
+                <th class="col-topic">主題</th>
+                <th class="col-speaker">講者</th>
+</tr>
+        </thead>
+        <tbody>
+<!-- M11 -->
+<tr>
+                <td class="col-code">M11</td>
+                <td>
+                    <p>惡性腫瘤中醫治療經驗與最新研究進展</p><br>
+                    <small>「進修項目」編號*: CME-PP0018-SCM0447<br>
+                    進修學分(CME): 3 學分 (3 小時)</small>
+</td>
+                <td class="col-speaker">
+陳抗生教授<br>
+                    <small>全國名中醫</small>
+</td>
+</tr>
+<!-- M12 -->
+
+<!-- M21 -->
+
+<!-- M22 -->
+
+<!-- M31 -->
+
+<!-- M32 -->
+
+<!-- M41 -->
+
+<!-- M42 -->
+
+<!-- M51 -->
+
+<!-- M52 -->
+
+<!-- M61 -->
+
+<!-- M62 -->
+        </tbody>
+    </table>
+
+    <div class="footer-info">
+        *香港中醫藥管理委員會認可「進修項目」編號 <br>
+查詢電郵： cmptraining2024@cuhk.edu.hk     中醫學院網址： http://www.scm.cuhk.edu.hk
+    </div>
+
+    <div class="footer-info">
+各項服務開放日期<br>
+註册:  2024年12月1日 至2026年5月31日<br>
+        登入:  2024年12月1日 至2026年5月31日
+    </div>
+
+    <div class="footer-info" style="font-size: 13px;">
+本資料／活動（或由獲資助機構）所表達的任何意見、研究、結果、結論或建議，並不代表香港特別行政區政府、醫務衞生局、中醫藥發展基金諮詢委員會、中醫藥發展基金執行機構或香港生產力促進局的觀點或意見。
+    </div>
+
+    <!-- Action Area (Buttons Replaced) -->
+    <div class="action-area">
+        <a href="videoplay.html" class="btn-watch" onclick="if(!Auth.isLoggedIn()){ showLoginModal(); return false; }">觀看視頻</a>
+    </div>
+
+    <!-- Login Required Modal -->
+    <div id="loginModal" class="modal-overlay" onclick="hideLoginModal()" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 1000; justify-content: center; align-items: center;">
+        <div class="modal-content" onclick="event.stopPropagation()" style="background-color: #ffffdf; padding: 30px; border-radius: 8px; max-width: 400px; width: 90%; border: 2px solid #0c82c0; text-align: center;">
+            <h3 style="color: #008080; margin-bottom: 20px;">溫馨提示</h3>
+            <p style="margin-bottom: 25px;">請先登入後再觀看視頻。</p>
+            <div style="display: flex; justify-content: center; gap: 15px;">
+                <button onclick="window.location.href='login.html'" style="background-color: #0c82c0; color: white; border: none; padding: 10px 25px; border-radius: 20px; cursor: pointer;">立即登入</button>
+                <button onclick="hideLoginModal()" style="background-color: #d94600; color: white; border: none; padding: 10px 25px; border-radius: 20px; cursor: pointer;">關閉</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showLoginModal() {
+            document.getElementById('loginModal').style.display = 'flex';
+        }
+        function hideLoginModal() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+    </script>
+
+    <div class="footer">
+        <span class="copyright">Copyright ©2024 School of Chinese Medicine, Faculty of Medicine, Haixiang Chinese Medicine Clinic. All Rights Reserved.</span>
+    </div>
+</div>
+</body>
+</html>

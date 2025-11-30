@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>登入 - 海翔中医诊所</title>
+<link rel="icon" type="image/png" href="favicons/.-2026-favicon.png">
+<style>
+    /* Reset & Base */
+    body {
+        font-family: "Microsoft JHengHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background-color: #f0f2f5;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+        line-height: 1.6;
+    }
+    
+    /* Layout */
+    .container {
+        max-width: 500px;
+        margin: 50px auto;
+        background: #fff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        border-top: 5px solid #0c82c0;
+        text-align: center;
+    }
+
+    /* Header */
+    .header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .header img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    .page-title {
+        font-size: 24px;
+        font-weight: bold;
+        color: #181818;
+        margin: 20px 0;
+    }
+
+    /* Form */
+    .form-group {
+        margin-bottom: 20px;
+        text-align: left;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #555;
+    }
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        box-sizing: border-box; /* Fix padding issue */
+    }
+    
+    .btn-login {
+        display: inline-block;
+        background: #0c82c0;
+        color: #fff;
+        font-size: 18px;
+        padding: 12px 40px;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .btn-login:hover {
+        background: #0a6ba0;
+    }
+
+    .message {
+        margin-top: 15px;
+        color: #d9534f;
+        font-weight: bold;
+        min-height: 24px;
+    }
+
+    .links {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+    .links a {
+        color: #0073e6;
+        text-decoration: none;
+    }
+    .links a:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <img src="images/png.jpg" alt="Banner">
+        <div class="page-title">用戶登入</div>
+    </div>
+
+    <form id="loginForm" onsubmit="handleLogin(event)">
+        <div class="form-group">
+            <label for="username">用戶名</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">密碼</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn-login">登入</button>
+        <div id="message" class="message"></div>
+    </form>
+
+    <div class="links">
+        還沒有賬號？ <a href="register.html">立即註冊</a> | <a href="index.html">返回首頁</a>
+    </div>
+</div>
+
+<script src="js/auth.js"></script>
+<script>
+    async function handleLogin(e) {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const messageEl = document.getElementById('message');
+
+        const result = await Auth.login(username, password);
+        
+        if (result.success) {
+            messageEl.style.color = '#28a745';
+            messageEl.textContent = result.message;
+            
+            // Redirect logic
+            const urlParams = new URLSearchParams(window.location.search);
+            const redirectUrl = urlParams.get('redirect');
+            
+            setTimeout(() => {
+                if (redirectUrl) {
+                    window.location.href = decodeURIComponent(redirectUrl);
+                } else {
+                    window.location.href = 'index.html';
+                }
+            }, 1000);
+        } else {
+            messageEl.style.color = '#d9534f';
+            messageEl.textContent = result.message;
+        }
+    }
+</script>
+
+</body>
+</html>
+
