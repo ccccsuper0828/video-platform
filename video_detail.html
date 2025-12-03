@@ -239,8 +239,16 @@
 </div>
 
         <div class="video-container">
-            <iframe src="https://drive.google.com/file/d/1WJWaslX9AIWtaEYV0__YSsVS6XTYEfsG/preview" width="100%" height="480" allow="autoplay" style="border: none;"></iframe>
-	</div>
+            <div style="position: relative; padding-top: 56.25%; height: 0; overflow: hidden;">
+                <iframe 
+                    src="https://drive.google.com/file/d/1WJWaslX9AIWtaEYV0__YSsVS6XTYEfsG/preview" 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen
+                    sandbox="allow-scripts allow-same-origin allow-presentation">
+                </iframe>
+            </div>
+        </div>
 </div>
 
     <!-- MCQ Section -->
@@ -309,8 +317,18 @@
         const videoData = videoMap[videoId] || videoMap['default'];
         
         // Update iframe src
-        const iframe = document.querySelector('.video-container iframe');
-        if(iframe) iframe.src = videoData.src;
+        const container = document.querySelector('.video-container div'); // Select the inner wrapper
+        if(container) {
+            container.innerHTML = `
+                <iframe 
+                    src="${videoData.src}" 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                    allow="autoplay; encrypted-media" 
+                    allowfullscreen
+                    sandbox="allow-scripts allow-same-origin allow-presentation">
+                </iframe>
+            `;
+        }
         
         // Update Title and Speaker
         const titleEl = document.querySelector('.video-title');
