@@ -124,13 +124,11 @@
         background-color: #fcfcfc;
     }
     
-    .col-id { width: 6%; text-align: center; font-weight: bold; }
-    .col-date { width: 12%; text-align: center; }
-    .col-topic { width: 30%; }
-    .col-speaker { width: 12%; text-align: center; }
-    .col-duration { width: 8%; text-align: center; }
-    .col-credit { width: 6%; text-align: center; }
-    .col-action { width: 13%; text-align: center; }
+    .col-id { width: 8%; text-align: center; font-weight: bold; }
+    .col-topic { width: 45%; }
+    .col-speaker { width: 20%; text-align: center; }
+    .col-duration { width: 12%; text-align: center; }
+    .col-action { width: 15%; text-align: center; }
 
     /* Buttons in Table */
     .btn-action {
@@ -260,15 +258,12 @@
         .video-table td:last-child { border-bottom: none; }
         
         .col-id:before { content: "編號"; }
-        .col-date:before { content: "日期"; }
         .col-topic:before { content: "主題"; }
         .col-speaker:before { content: "講者"; }
         .col-duration:before { content: "片長"; }
-        .col-credit:before { content: "學分"; }
-        .col-action:nth-last-child(2):before { content: "講座"; }
-        .col-action:last-child:before { content: "進修證書"; }
+        .col-action:last-child:before { content: "講座"; }
         
-        .col-id, .col-date, .col-topic, .col-speaker, .col-duration, .col-credit, .col-action {
+        .col-id, .col-topic, .col-speaker, .col-duration, .col-action {
             width: auto;
             text-align: left;
         }
@@ -288,16 +283,6 @@
             </div>
         </div>
         <div class="page-title">海翔中醫執業試2025口試回放班｜一年期無限次觀看</div>
-</div>
-
-    <div class="instructions">
-        <h3>使用說明 :</h3>
-        <ol>
-            <li><span class="highlight-red">實體活動「進修項目」編號與網上重溫「進修項目」編號相同。曾於2024年1月至9月活動期間獲發並領取「註冊中醫進修證明書」的參加者無需重複下載證書。</span></li>
-            <li>講座觀看次數不限, 證書最多可重覆下載 3 次。</li>
-            <li>請於 2026 年 5 月 31 日或之前觀看講座及完成有關問題後自行下載證書，逾期未有下載將不獲補發證書。</li>
-        </ol>
-</div>
 
     <div class="section-title">觀看講座及下載證書</div>
     
@@ -305,107 +290,91 @@
         <thead>
             <tr>
                 <th class="col-id">編號</th>
-                <th class="col-date">實體講座日期</th>
                 <th class="col-topic">主題</th>
                 <th class="col-speaker">講者</th>
                 <th class="col-duration">片長</th>
-                <th class="col-credit">學分</th>
                 <th class="col-action">講座</th>
-                <th class="col-action">進修證書</th>
             </tr>
         </thead>
         <tbody>
             <!-- 1. Pediatrics -->
             <tr>
                 <td class="col-id">1</td>
-                <td class="col-date">2024-12-01</td>
                 <td class="col-topic">兒科2025回放</td>
                 <td class="col-speaker">郭爾竹醫師</td>
                 <td class="col-duration">N/A</td>
-                <td class="col-credit">N/A</td>
                 <td class="col-action">
                     <a href="video_detail.html?v=new" class="btn-action btn-view">觀看</a><br>
                     <span class="status-text status-unwatched">(未觀看)</span>
-                </td>
-                <td class="col-action">
-                    <br>
-                    <span class="status-text status-unwatched">(未下載)</span>
                 </td>
             </tr>
             <!-- 2. Gynecology -->
             <tr>
                 <td class="col-id">2</td>
-                <td class="col-date">2024-12-02</td>
                 <td class="col-topic">婦科2025回放</td>
                 <td class="col-speaker">林天昕醫師</td>
                 <td class="col-duration">N/A</td>
-                <td class="col-credit">N/A</td>
                 <td class="col-action">
                     <a href="video_detail.html?v=new2" class="btn-action btn-view">觀看</a><br>
                     <span class="status-text status-unwatched">(未觀看)</span>
-                </td>
-                <td class="col-action">
-                    <br>
-                    <span class="status-text status-unwatched">(未下載)</span>
                 </td>
             </tr>
             <!-- 3. Orthopedics -->
             <tr>
                 <td class="col-id">3</td>
-                <td class="col-date">2024-12-02</td>
                 <td class="col-topic">骨科2025回放</td>
                 <td class="col-speaker">王國榮醫師</td>
                 <td class="col-duration">N/A</td>
-                <td class="col-credit">N/A</td>
                 <td class="col-action">
                     <a href="video_detail.html?v=new3" class="btn-action btn-view">觀看</a><br>
                     <span class="status-text status-unwatched">(未觀看)</span>
-                </td>
-                <td class="col-action">
-                    <br>
-                    <span class="status-text status-unwatched">(未下載)</span>
                 </td>
             </tr>
             <!-- 4. Internal Medicine -->
             <tr>
                 <td class="col-id">4</td>
-                <td class="col-date">2024-12-02</td>
                 <td class="col-topic">內科2025回放</td>
                 <td class="col-speaker">單浩彬醫師</td>
                 <td class="col-duration">N/A</td>
-                <td class="col-credit">N/A</td>
                 <td class="col-action">
                     <a href="video_detail.html?v=new4" class="btn-action btn-view">觀看</a><br>
                     <span class="status-text status-unwatched">(未觀看)</span>
-                </td>
-                <td class="col-action">
-                    <br>
-                    <span class="status-text status-unwatched">(未下載)</span>
                 </td>
             </tr>
             <!-- 5. Acupuncture -->
             <tr>
                 <td class="col-id">5</td>
-                <td class="col-date">2024-12-02</td>
                 <td class="col-topic">針灸2025回放</td>
                 <td class="col-speaker">彭旭亨醫師</td>
                 <td class="col-duration">N/A</td>
-                <td class="col-credit">N/A</td>
                 <td class="col-action">
                     <a href="video_detail.html?v=new5" class="btn-action btn-view">觀看</a><br>
                     <span class="status-text status-unwatched">(未觀看)</span>
-                </td>
-                <td class="col-action">
-                    <br>
-                    <span class="status-text status-unwatched">(未下載)</span>
                 </td>
             </tr>
         </tbody>
     </table>
 
-    <div class="disclaimer">
-本資料／活動（或由獲資助機構）所表達的任何意見、研究、結果、結論或建議，並不代表香港特別行政區政府、醫務衞生局、中醫藥發展基金諮詢委員會、中醫藥發展基金執行機構或香港生產力促進局的觀點或意見。
-</div>
+    <div class="disclaimer" style="text-align: left; background: #f9f9f9; padding: 25px; border-radius: 8px; margin-top: 30px; line-height: 1.8; color: #333; font-weight: normal;">
+        <h3 style="text-align: center; margin-bottom: 25px; color: #333; font-size: 18px; border-bottom: 2px solid #ddd; padding-bottom: 10px;">知識與版權聲明</h3>
+        
+        <p style="margin-bottom: 15px;"><strong>使用授權</strong> • 您購買的是「個人線上觀看授權」（一年期），僅限本人使用，不得轉讓、出租或共享。 • 影片與資料庫僅供學習與備考，不構成任何臨床診療建議。</p>
+        
+        <p style="margin-bottom: 15px;"><strong>禁止行為</strong> • 未經書面許可，禁止複製、錄屏、下載、二次修改、轉載、二次售賣或在任何平台公開傳播（含社交媒體、雲端、社群）。 • 禁止帳號共享、多人同用同一帳號；系統將基於裝置指紋與登入行為進行異常偵測。</p>
+        
+        <p style="margin-bottom: 15px;"><strong>技術與合規</strong> • 回放影片與資料庫含數位浮水印與存取記錄；若發現侵權或外傳，將暫停帳號並保留進一步維權權利。 • 如遇不可抗力或平台維護導致短時不可用，將盡量延長觀看期或提供相應補償。</p>
+        
+        <p style="margin-bottom: 15px;"><strong>資料庫來源與說明</strong> • 由20人團隊根據近年公開考試與自研整理製作，持續更新；不含任何機密或違規來源資訊。 • 內容以教學與應試框架為主，可能與實際試題存在差異；請以官方考試要求為準。</p>
+        
+        <p style="margin-bottom: 15px;"><strong>退款與更換</strong> • 純回放屬於數位內容，一經開通概不退款；購買前請確認帳號與裝置可正常播放。 • 因帳號異常或技術問題影響觀看者，請於48小時內聯絡客服，我們將協助處理或提供合理補償。</p>
+        
+        <p style="margin-bottom: 15px;"><strong>免責聲明</strong> • 本課程為應試技巧訓練，不保證通過考試；所有臨床相關內容僅用於答題演練。 • 所有解釋權歸海翔中醫診所；如需授權轉載或團隊合約，請電郵聯繫。</p>
+        
+        <p style="margin-bottom: 0;"><strong>聯絡方式</strong> • WhatsApp：56115091 • 客服時間：週一至週五 10:00–18:00（港澳時間）</p>
+    <div class="footer" style="text-align: center; margin-top: 20px; color: #999; font-size: 12px;">
+        <p style="margin-bottom: 5px;">Copyright ©2024 School of Chinese Medicine, Faculty of Medicine, Haixiang Chinese Medicine Clinic. All Rights Reserved.</p>
+        <p style="margin: 0;">©2025 Ocean Chinese Medicine Clinic Limited. All Rights Reserved</p>
+	</div>
 </div>
 
 <!-- Modals -->
