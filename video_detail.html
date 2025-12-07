@@ -241,7 +241,7 @@
         <div class="video-container">
             <div style="position: relative; padding-top: 56.25%; height: 0; overflow: hidden;">
                 <iframe 
-                    src="https://drive.google.com/file/d/1WJWaslX9AIWtaEYV0__YSsVS6XTYEfsG/preview" 
+                    src="about:blank" 
                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
                     allow="autoplay; encrypted-media" 
                     allowfullscreen
@@ -266,37 +266,37 @@
     // Video Data
     const videoMap = {
         'new': {
-            src: 'https://drive.google.com/file/d/1sovWwAXcWgooQzeiafxTkHrBPIySxS4q/preview',
+            _s: 'aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xc292V3dBWGNXZ29vUXplaWFmeFRrSHJCUEl5U3hTNHEvcHJldmlldw==',
             title: '兒科',
             speaker: '郭爾竹醫師'
         },
         'new2': {
-            src: 'https://drive.google.com/file/d/1LSKoYmN16A2H1Giohcc91yRHaV13zLBM/preview',
+            _s: 'aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xTFNLb1ltTjE2QTJIMUdpb2hjYzkxeVJIYVYxM3pMQk0vcHJldmlldw==',
             title: '婦科',
             speaker: '林天昕醫師'
         },
         'new3': {
-            src: 'https://drive.google.com/file/d/1ef7JvbiUCdE5DgwMFAbuMCt-6qTFqLsh/preview',
+            _s: 'aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xZWY3SnZiaVVDZEU1RGd3TUZBYnVNQ3QtNnFURnFMc2gvcHJldmlldw==',
             title: '骨科',
             speaker: '王國榮醫師'
         },
         'new4': {
-            src: 'https://drive.google.com/file/d/1tlOsNKF5fdnAvoI1QwaTpdoepiNVuVdb/preview',
+            _s: 'aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xdGxPc05LRjVmZG5Bdm9JMVF3YVRwZG9lcGlOVnVWZGIvcHJldmlldw==',
             title: '內科',
             speaker: '單浩彬醫師'
         },
         'new5': {
-            src: 'https://drive.google.com/file/d/1yPMh5A11JWW_qH1XyeEvnFHE4hPhzLxp/preview',
+            _s: 'aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xeVBNaDVBMTFKV1dfcUgxWHllRXZuRkhFNGhQaHpMeHAvcHJldmlldw==',
             title: '針灸',
             speaker: '彭旭亨醫師'
         },
         'm11': { // Default fallback
-            src: 'https://drive.google.com/file/d/1WJWaslX9AIWtaEYV0__YSsVS6XTYEfsG/preview',
+            _s: 'aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xV0pXYXNsWDlBSVd0YUVZVjBfX1lTc1ZTNlhUWUVmc0cvcHJldmlldw==',
             title: 'M11   惡性腫瘤中醫治療經驗與最新研究進展',
             speaker: '陳抗⽣教授'
         },
         'default': {
-            src: 'https://drive.google.com/file/d/1WJWaslX9AIWtaEYV0__YSsVS6XTYEfsG/preview',
+            _s: 'aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2ZpbGUvZC8xV0pXYXNsWDlBSVd0YUVZVjBfX1lTc1ZTNlhUWUVmc0cvcHJldmlldw==',
             title: 'M11   惡性腫瘤中醫治療經驗與最新研究進展',
             speaker: '陳抗⽣教授'
         }
@@ -316,12 +316,15 @@
         const videoId = getParameterByName('v') || 'default';
         const videoData = videoMap[videoId] || videoMap['default'];
         
+        // Decode src
+        const decodedSrc = atob(videoData._s);
+
         // Update iframe src
         const container = document.querySelector('.video-container div'); // Select the inner wrapper
         if(container) {
             container.innerHTML = `
                 <iframe 
-                    src="${videoData.src}" 
+                    src="${decodedSrc}" 
                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
                     allow="autoplay; encrypted-media" 
                     allowfullscreen
