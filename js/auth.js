@@ -9,14 +9,14 @@ const Auth = {
     CURRENT_USER_KEY: 'app_current_user',
 
     // Register a new user
-    register: async function(username, password, name) {
+    register: async function(username, password, name, role = 'customer') {
         try {
             const response = await fetch(`${this.API_URL}/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ username, password, name })
+                body: JSON.stringify({ username, password, name, role })
             });
             return await response.json();
         } catch (error) {
@@ -80,9 +80,15 @@ const Auth = {
         const userInfoEls = document.querySelectorAll('.user-info');
 
         if (user) {
+            let adminLink = '';
+            if (user.role === 'admin') {
+                adminLink = `<a href="register.html" style="color: #0c82c0; text-decoration: none; font-weight: bold; margin-left: 20px;">註冊新用戶</a>`;
+            }
+            
             userInfoEls.forEach(el => {
                 el.innerHTML = `
-                    登入 : <span class="user-name">${user.name}</span>
+                    登入 : <span class="user-name">${user.name}</span> <span style="font-size:12px; color:#666;">(${user.role === 'admin' ? '管理員' : '客戶'})</span>
+                    ${adminLink}
                     <a href="javascript:Auth.logout()" class="logout-btn" style="color: #d9534f; text-decoration: none; font-size: 14px; margin-left: 20px;">登出</a>
                 `;
             });
@@ -90,7 +96,7 @@ const Auth = {
             userInfoEls.forEach(el => {
                 el.innerHTML = `
                     <a href="login.html" style="color: #0c82c0; text-decoration: none; font-weight: bold; margin-right: 10px;">登入</a>
-                    <a href="register.html" style="color: #0c82c0; text-decoration: none; font-weight: bold;">註冊</a>
+                    <!-- Register hidden for public -->
                 `;
             });
         }

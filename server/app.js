@@ -37,8 +37,12 @@ app.post('/api/register', async (req, res) => {
             return res.json({ success: false, message: '用戶名已存在' });
         }
 
+        // Default role is customer unless specified (and potentially authorized, but keeping simple for now)
+        // In a real app, only admins should be able to set role='admin'
+        const role = req.body.role || 'customer';
+
         // Insert new user
-        await db.execute('INSERT INTO users (username, password, name) VALUES (?, ?, ?)', [username, password, name]);
+        await db.execute('INSERT INTO users (username, password, name, role) VALUES (?, ?, ?, ?)', [username, password, name, role]);
         res.json({ success: true, message: '註冊成功' });
     } catch (error) {
         console.error(error);
